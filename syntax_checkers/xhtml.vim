@@ -1,5 +1,5 @@
 "============================================================================
-"File:        eruby.vim
+"File:        xhtml.vim
 "Description: Syntax checking plugin for syntastic.vim
 "Maintainer:  Martin Grenfell <martin_grenfell at msn dot com>
 "License:     This program is free software. It comes without any warranty,
@@ -9,19 +9,20 @@
 "             See http://sam.zoy.org/wtfpl/COPYING for more details.
 "
 "============================================================================
-if exists("loaded_eruby_syntax_checker")
+if exists("loaded_xhtml_syntax_checker")
     finish
 endif
-let loaded_eruby_syntax_checker = 1
+let loaded_xhtml_syntax_checker = 1
 
-"bail if the user doesnt have ruby or cat installed
-if !executable("ruby") || !executable("cat")
+"bail if the user doesnt have tidy or grep installed
+if !executable("tidy")
     finish
 endif
 
-function! SyntaxCheckers_eruby_GetLocList()
-    let makeprg='cat '. expand("%") . ' \| RUBYOPT= ruby -e "require \"erb\"; puts ERB.new(ARGF.read, nil, \"-\").src" \| RUBYOPT= ruby -c'
-    let errorformat='%-GSyntax OK,%E-:%l: syntax error\, %m,%Z%p^,%W-:%l: warning: %m,%Z%p^,%-C%.%#'
+function! SyntaxCheckers_xhtml_GetLocList()
+
+    let makeprg="tidy -xml -e %"
+    let errorformat='%Wline %l column %c - Warning: %m,%Eline %l column %c - Error: %m,%-G%.%#,%-G%.%#'
     let loclist = SyntasticMake({ 'makeprg': makeprg, 'errorformat': errorformat })
 
     "the file name isnt in the output so stick in the buf num manually

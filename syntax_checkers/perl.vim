@@ -1,7 +1,7 @@
 "============================================================================
-"File:        ruby.vim
+"File:        perl.vim
 "Description: Syntax checking plugin for syntastic.vim
-"Maintainer:  Martin Grenfell <martin_grenfell at msn dot com>
+"Maintainer:  Anthony Carapetis <anthony.carapetis at gmail dot com>
 "License:     This program is free software. It comes without any warranty,
 "             to the extent permitted by applicable law. You can redistribute
 "             it and/or modify it under the terms of the Do What The Fuck You
@@ -9,19 +9,23 @@
 "             See http://sam.zoy.org/wtfpl/COPYING for more details.
 "
 "============================================================================
-if exists("loaded_ruby_syntax_checker")
+
+" This checker requires efm_perl.pl, which is distributed with Vim version
+" seven and greater, as far as I know.
+
+if exists("loaded_perl_syntax_checker")
     finish
 endif
-let loaded_ruby_syntax_checker = 1
+let loaded_perl_syntax_checker = 1
 
-"bail if the user doesnt have ruby installed
-if !executable("ruby")
+"bail if the user doesnt have perl installed
+if !executable("perl")
     finish
 endif
 
-function! SyntaxCheckers_ruby_GetLocList()
-    let makeprg = 'RUBYOPT= ruby -w -c %'
-    let errorformat =  '%-GSyntax OK,%E%f:%l: syntax error\, %m,%Z%p^,%W%f:%l: warning: %m,%Z%p^,%-C%.%#'
+function! SyntaxCheckers_perl_GetLocList()
+    let makeprg = $VIMRUNTIME.'/tools/efm_perl.pl -c %'
+    let errorformat =  '%f:%l:%m'
 
     return SyntasticMake({ 'makeprg': makeprg, 'errorformat': errorformat })
 endfunction

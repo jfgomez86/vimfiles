@@ -1,7 +1,7 @@
 "============================================================================
-"File:        ruby.vim
+"File:        haskell.vim
 "Description: Syntax checking plugin for syntastic.vim
-"Maintainer:  Martin Grenfell <martin_grenfell at msn dot com>
+"Maintainer:  Anthony Carapetis <anthony.carapetis at gmail dot com>
 "License:     This program is free software. It comes without any warranty,
 "             to the extent permitted by applicable law. You can redistribute
 "             it and/or modify it under the terms of the Do What The Fuck You
@@ -9,19 +9,22 @@
 "             See http://sam.zoy.org/wtfpl/COPYING for more details.
 "
 "============================================================================
-if exists("loaded_ruby_syntax_checker")
+if exists("loaded_haskell_syntax_checker")
     finish
 endif
-let loaded_ruby_syntax_checker = 1
+let loaded_haskell_syntax_checker = 1
 
-"bail if the user doesnt have ruby installed
-if !executable("ruby")
+"bail if the user doesnt have ghc installed
+if !executable("ghc")
     finish
 endif
 
-function! SyntaxCheckers_ruby_GetLocList()
-    let makeprg = 'RUBYOPT= ruby -w -c %'
-    let errorformat =  '%-GSyntax OK,%E%f:%l: syntax error\, %m,%Z%p^,%W%f:%l: warning: %m,%Z%p^,%-C%.%#'
+" As this calls ghc, it can take a few seconds... maybe hlint or something
+" could do a good enough job?
+function! SyntaxCheckers_haskell_GetLocList()
+    let makeprg = 'ghc % -e :q'
+    let errorformat = '%-G\\s%#,%f:%l:%c:%m,%E%f:%l:%c:,%Z%m,'
+
 
     return SyntasticMake({ 'makeprg': makeprg, 'errorformat': errorformat })
 endfunction
