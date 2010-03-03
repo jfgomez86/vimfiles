@@ -1,0 +1,175 @@
+source ~/.vim/vimrc      "linux
+" Indent
+set cindent
+set autoindent
+set expandtab
+
+" Tags
+set tags+=tmp/tags
+
+" I prefer 2 spaces instead of 4
+set shiftwidth=2
+set softtabstop=2
+
+" Colorscheme Settings
+colorscheme vividchalk
+highlight NonText guibg=#060606
+highlight Folded guibg=#0A0A0A guifg=#9090D0
+if has("gui")
+  set number
+endif
+
+" FAVORITES:
+"colorscheme zenburn
+"colorscheme tolerable
+"colorscheme earendel
+
+" Make wildmenu matches case insensitive
+set wildmode+=full
+
+" Case insensitive search
+set ignorecase
+
+" Set temporary directory (don't litter local dir with swp/tmp files)
+set directory=/tmp/
+
+" Let the <leader> key be '
+let mapleader = "'"
+
+" Make sure that the directory where we want to put swap/backup files exists.
+if ! len(glob("~/.backup/"))
+  echomsg "Backup directory ~/.backup doesn't exist!"
+  echomsg "Creating it..."
+  exe ':!mkdir ~/.backup'
+endif
+
+" Remap F1 from Help to ESC.  No more accidents
+nmap <F1> <Esc>
+map! <F1> <Esc>
+
+" Map NERDTreeToggle to <leader> p
+nmap <silent> <Leader>p :NERDTreeToggle<CR>
+
+" Move easily over splits
+map <C-j> <C-W>w
+map <C-k> <C-W>W
+
+" Shortcut escape
+"nmap jj <ESC>
+"imap JJ <ESC>
+
+" Some readlines emacs default mappings
+imap <C-a> <ESC>I
+imap <C-e> <ESC>A
+imap <C-k> <ESC>Di
+
+" Make Fn keys useful
+map <F4> :w<CR>
+imap <F4> <ESC>:w<CR>
+map <F2> :q<CR>
+imap <F2> :q<CR>
+
+" Make enter split lines
+map <Enter> o<ESC>
+
+" Show me what I yanked
+noremap ,re :registers<CR>
+
+" Ruby Settings
+autocmd FileType ruby map <F5> :!ruby %<CR>
+autocmd FileType ruby imap <F5> <ESC>:!ruby %<CR>
+autocmd FileType ruby map <F6> :!terminal -e "irb -r %"&<CR>
+autocmd FileType ruby imap <F6> <ESC>:!terminal -e "irb -r %"&<CR>
+
+" HTML Settings
+autocmd FileType html,xhtml map <F5> :!firefox %<CR>
+autocmd FileType html,xhtml imap <F5> <ESC>:!firefox %<CR>
+
+" Vim Settings
+autocmd FileType vim map <F5> :so %<CR>
+
+" Vimoutliner Settings
+autocmd FileType vo_base set nolist
+autocmd FileType vo_base set foldlevel=1
+
+" vim IRB ☺
+autocmd FileType irb inoremap <buffer> <silent> <CR> <Esc>:<C-u>ruby v=VIM::Buffer.current;v.append(v.line_number, eval(v[v.line_number]).inspect)<CR>
+nnoremap <leader>irb :<C-u>below new<CR>:setfiletype irb<CR>:set syntax=ruby<CR>:set buftype=nofile<CR>:set bufhidden=delete<CR>i
+
+" Remove any trailing whitespace that is in the file
+autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+
+" Squeeze blank lines with :Squeeze
+command! -nargs=0 Squeeze %s/\s\+$//
+
+" Make tags (requires ctags)
+command! -nargs=0 Ctags !/usr/local/bin/ctags --tag-relative=yes -R -f tmp/tags .
+
+
+" Make # surrounds actually make a ruby string interpolation
+let g:surround_35 = "#{\r}"
+
+" ,v reloads the ~/.vimrc file
+nnoremap ,,v :e ~/.vimrc
+nnoremap ,v :source ~/.vimrc
+
+" Open the Ruby ApiDock page for the word under cursor, in a new Firefox tab
+function! OpenRubyDoc(keyword)
+  let url = 'http://apidock.com/ruby/'.a:keyword
+  exec '!'.g:browser.' '.url.' &'
+endfunction
+noremap RB :call OpenRubyDoc(expand('<cword>'))<CR>
+
+" Open the Rails ApiDock page for the word under cursos, in a new Firefox tab
+function! OpenRailsDoc(keyword)
+  let url = 'http://apidock.com/rails/'.a:keyword
+  exec '!'.g:browser.' '.url.' &'
+endfunction
+noremap RR :call OpenRailsDoc(expand('<cword>'))<CR>
+
+"command! -nargs=* -range IncrementNumbers ruby make_incremental_numbers(<line1>, <line2>, <f-args>)
+"ruby << EOF
+"def make_incremental_numbers(line1, line2, search_string, from_number)
+"b = VIM::Buffer.current
+"number = from_number.to_i
+"for line in line1..line2
+  "if b[line].match(/#{search_string}/)
+    "b[line] = b[line].gsub(/#{search_string}/, number.to_s)
+    "number += 1
+  "end
+"end
+"end
+"EOF
+
+" Quitting quickly
+command Q q
+command W w
+command WQ wq
+command Wq wq
+
+" Open rox here
+map <F12> :silent !thunar $(dirname %)<CR>
+map <F11> :silent !terminal --working-directory=$(dirname %)&<CR>
+
+" Rake
+imap <F3> <ESC>:Rake
+map <F3> <ESC>:Rake
+filetype plugin indent on
+syntax on
+
+" Start with source folded
+if has("folding")
+  set foldenable
+  set foldmethod=syntax
+  set foldlevel=1
+  set foldnestmax=2
+  set foldtext=strpart(getline(v:foldstart),0,50).'\ ...\ '.substitute(getline(v:foldend),'^[\ #]*','','g').'\ '
+endif
+
+" Use Ack instead of Grep when available
+if executable("ack")
+  set grepprg=ack\ -H\ --nogroup\ --nocolor
+endif
+
+" Map <leader>tc to run the tests
+map <Leader>tc <Plug>RubyFileRun
