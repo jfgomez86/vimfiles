@@ -13,9 +13,10 @@ set softtabstop=2
 
 " Colorscheme Settings
 colorscheme vividchalk
-highlight NonText guibg=#060606
-highlight Folded guibg=#0A0A0A guifg=#9090D0
+"highlight NonText guibg=#060606
+"highlight Folded guibg=#0A0A0A guifg=#9090D0
 if has("gui")
+  colorscheme github
   set number
 endif
 
