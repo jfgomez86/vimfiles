@@ -15,3 +15,9 @@ Put this in your vimrc along with your personal hacks:
 source ~/.vim/vimrc      "linux
 source ~/vimfiles/vimrc  "windows
 </code></pre>
+
+Optionally you can also symlink my own .vimrc:
+
+<pre><code>
+ln -s ~/.vim/dot_vimrc ~/.vimrc
+</pre></code>
