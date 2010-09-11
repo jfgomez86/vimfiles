@@ -7,6 +7,10 @@ set expandtab
 " Tags
 set tags+=tmp/tags
 
+" No toolbars please
+set guioptions-=m
+set guioptions-=T
+
 " I prefer 2 spaces instead of 4
 set shiftwidth=2
 set softtabstop=2
