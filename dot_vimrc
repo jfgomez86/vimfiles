@@ -21,7 +21,7 @@ colorscheme vividchalk
 "highlight Folded guibg=#0A0A0A guifg=#9090D0
 if has("gui")
   colorscheme mustang
-  set number
+  "set number
 endif
 
 " FAVORITES:
