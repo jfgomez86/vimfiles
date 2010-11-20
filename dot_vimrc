@@ -80,16 +80,6 @@ map <Enter> o<ESC>
 " Show me what I yanked
 noremap ,re :registers<CR>
 
-" Ruby Settings
-autocmd FileType ruby map <F5> :!ruby %<CR>
-autocmd FileType ruby imap <F5> <ESC>:!ruby %<CR>
-autocmd FileType ruby map <F6> :!terminal -e "irb -r %"&<CR>
-autocmd FileType ruby imap <F6> <ESC>:!terminal -e "irb -r %"&<CR>
-
-" HTML Settings
-autocmd FileType html,xhtml map <F5> :!firefox %<CR>
-autocmd FileType html,xhtml imap <F5> <ESC>:!firefox %<CR>
-
 " Vim Settings
 autocmd FileType vim map <F5> :so %<CR>
 
@@ -151,10 +141,6 @@ command Q q
 command W w
 command WQ wq
 command Wq wq
-
-" Open rox here
-map <F12> :silent !thunar $(dirname %)<CR>
-map <F11> :silent !terminal --working-directory=$(dirname %)&<CR>
 
 " Rake
 imap <F3> <ESC>:Rake
