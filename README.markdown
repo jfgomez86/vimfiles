@@ -61,6 +61,7 @@ All these are actually git submodules, so updating should be as easy as running
 
     git submodule update
 
-h1. Installation/Usage
+Installation/Usage
+=================
 
     TODO
