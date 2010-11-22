@@ -1,6 +1,4 @@
-filetype off
 call pathogen#runtime_append_all_bundles()
-filetype on
 
 source ~/.vim/vimrc      "linux
 " Indent
@@ -21,17 +19,6 @@ set softtabstop=2
 
 " Colorscheme Settings
 colorscheme mustang
-"highlight NonText guibg=#060606
-"highlight Folded guibg=#0A0A0A guifg=#9090D0
-if has("gui")
-  colorscheme mustang
-  "set number
-endif
-
-" FAVORITES:
-"colorscheme zenburn
-"colorscheme tolerable
-"colorscheme earendel
 
 " Make wildmenu matches case insensitive
 set wildmode+=full
@@ -63,20 +50,10 @@ nmap <silent> <Leader>p :NERDTreeToggle<CR>
 map <C-j> <C-W>w
 map <C-k> <C-W>W
 
-" Shortcut escape
-"nmap jj <ESC>
-"imap JJ <ESC>
-
 " Some readlines emacs default mappings
 imap <C-a> <ESC>I
 imap <C-e> <ESC>A
 imap <C-k> <ESC>lC
-
-" Make Fn keys useful
-map <F4> :w<CR>
-imap <F4> <ESC>:w<CR>
-map <F2> :q<CR>
-imap <F2> :q<CR>
 
 " Make enter split lines
 map <Enter> o<ESC>
@@ -103,7 +80,6 @@ command! -nargs=0 Squeeze %s/\s\+$//
 
 " Make tags (requires ctags)
 command! -nargs=0 Ctags !/usr/local/bin/ctags --tag-relative=yes -R -f tmp/tags .
-
 
 " Make # surrounds actually make a ruby string interpolation
 let g:surround_35 = "#{\r}"
@@ -145,12 +121,6 @@ command Q q
 command W w
 command WQ wq
 command Wq wq
-
-" Rake
-imap <F3> <ESC>:Rake
-map <F3> <ESC>:Rake
-filetype plugin indent on
-syntax on
 
 " Start with source folded
 if has("folding")

@@ -261,7 +261,7 @@ nnoremap Y y$
 let g:syntastic_enable_signs=1
 
 "snipmate setup
-source ~/.vim/snippets/support_functions.vim
+source ~/.vim/bundle/snipmate/snippets/support_functions.vim
 autocmd vimenter * call s:SetupSnippets()
 function! s:SetupSnippets()
 
