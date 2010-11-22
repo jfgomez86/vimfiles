@@ -1,6 +1,6 @@
 #!/bin/bash
 for file in ~/.vim ./vimrc; do
-  if [ -f $file ]; then
+  if [ -e $file ]; then
     mv $file{,.old}
   fi
 done
