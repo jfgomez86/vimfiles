@@ -5,13 +5,13 @@
 	path = bundle/ack
 	url = git://github.com/mileszs/ack.vim.git
 [submodule "bundle/fugitive"]
-	path = bundle/vim-fugitive
+	path = bundle/fugitive
 	url = git://github.com/tpope/vim-fugitive.git
 [submodule "bundle/git"]
-	path = bundle/vim-git
+	path = bundle/git
 	url = git://github.com/tpope/vim-git.git
 [submodule "bundle/haml"]
-	path = bundle/vim-haml
+	path = bundle/haml
 	url = git://github.com/tpope/vim-haml.git
 [submodule "bundle/indent_object"]
 	path = bundle/indent_object
