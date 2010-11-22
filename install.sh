@@ -2,7 +2,8 @@
 git clone git://github.com/jfgomez86/vimfiles.git ~/.vim
 ln -s ~/.vim/dot_vimrc ~/.vimrc
 cd ~/.vim
-git submodule update --init --recursive
+git submodule init
+git submodule update
 cd ~/.vim/bundle/Command-T/ruby/command-t/
 ruby extconf.rb
 make
