@@ -1,8 +1,8 @@
 [submodule "snippets"]
 	path = snippets
 	url = git://github.com/scrooloose/snipmate-snippets.git
-[submodule "bundles/ack"]
-	path = bundles/ack
+[submodule "bundle/ack"]
+	path = bundle/ack
 	url = git://github.com/mileszs/ack.vim.git
 [submodule "bundle/fugitive"]
 	path = bundle/vim-fugitive
