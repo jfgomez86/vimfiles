@@ -61,7 +61,19 @@ All these are actually git submodules, so updating should be as easy as running
 
     git submodule update
 
+Requirements
+=============
+
+* Git
+* Ruby
+* gcc (for Command-T to work)
+* curl
+* exuberant ctags
+
 Installation/Usage
 =================
 
-    TODO
+Run the following command from your terminal and enjoy the fireworks!
+
+    curl https://github.com/jfgomez86/vimfiles/raw/master/install.sh | sh
+
