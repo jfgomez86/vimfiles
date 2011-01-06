@@ -138,3 +138,7 @@ endif
 
 " Map <leader>tc to run the tests
 map <Leader>tc <Plug>RubyFileRun
+
+" Gist config
+let g:gist_show_privates = 1
+let g:gist_detect_filetype = 1
