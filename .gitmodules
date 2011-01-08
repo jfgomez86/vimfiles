@@ -28,9 +28,6 @@
 [submodule "bundle/surround"]
 	path = bundle/surround
 	url = git://github.com/tpope/vim-surround.git
-[submodule "bundle/supertab"]
-	path = bundle/supertab
-	url = git://github.com/ervandew/supertab.git
 [submodule "bundle/cucumber"]
 	path = bundle/cucumber
 	url = git://github.com/tpope/vim-cucumber.git
@@ -46,9 +43,6 @@
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
 	url = git://github.com/msanders/snipmate.vim.git
-[submodule "bundle/autoclose"]
-	path = bundle/autoclose
-	url = git://github.com/Townk/vim-autoclose.git
 [submodule "bundle/markdown"]
 	path = bundle/markdown
 	url = git://github.com/tpope/vim-markdown.git
@@ -85,12 +79,6 @@
 [submodule "bundle/IndexedSearch"]
 	path = bundle/IndexedSearch
 	url = git://github.com/vim-scripts/IndexedSearch.git
-[submodule "bundle/jsbeautify"]
-	path = bundle/jsbeautify
-	url = git://github.com/vim-scripts/jsbeautify.git
-[submodule "bundle/Ruby-Single-Test"]
-	path = bundle/Ruby-Single-Test
-	url = git://github.com/vim-scripts/Ruby-Single-Test.git
 [submodule "bundle/Syntastic"]
 	path = bundle/Syntastic
 	url = git://github.com/vim-scripts/Syntastic.git

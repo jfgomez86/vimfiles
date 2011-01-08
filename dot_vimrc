@@ -1,5 +1,6 @@
 call pathogen#runtime_append_all_bundles()
 
+set rtp+=/usr/share/vim/addons
 source ~/.vim/vimrc      "linux
 " Indent
 set cindent
@@ -53,7 +54,6 @@ map <C-k> <C-W>W
 " Some readlines emacs default mappings
 imap <C-a> <ESC>I
 imap <C-e> <ESC>A
-imap <C-k> <ESC>lC
 
 " Make enter split lines
 map <Enter> o<ESC>
@@ -63,14 +63,6 @@ noremap ,re :registers<CR>
 
 " Vim Settings
 autocmd FileType vim map <F5> :so %<CR>
-
-" Vimoutliner Settings
-autocmd FileType vo_base set nolist
-autocmd FileType vo_base set foldlevel=1
-
-" vim IRB ☺
-autocmd FileType irb inoremap <buffer> <silent> <CR> <Esc>:<C-u>ruby v=VIM::Buffer.current;v.append(v.line_number, eval(v[v.line_number]).inspect)<CR>
-nnoremap <leader>irb :<C-u>below new<CR>:setfiletype irb<CR>:set syntax=ruby<CR>:set buftype=nofile<CR>:set bufhidden=delete<CR>i
 
 " Remove any trailing whitespace that is in the file
 autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif

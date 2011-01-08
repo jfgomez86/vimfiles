@@ -25,7 +25,6 @@ It includes plugins that I find most useful. Some of them:
 
 * ack
 * align
-* autoclose
 * bufexplorer
 * camelcasemotion
 * Command-T
@@ -39,7 +38,6 @@ It includes plugins that I find most useful. Some of them:
 * indent_object
 * IndexedSearch
 * javascript
-* jsbeautify
 * markdown
 * markdown_preview
 * nerdcommenter
@@ -48,9 +46,7 @@ It includes plugins that I find most useful. Some of them:
 * rails
 * rake
 * rspec
-* Ruby-Single-Test
 * snipmate
-* supertab
 * surround
 * Syntastic
 * taglist
@@ -77,3 +73,14 @@ Run the following command from your terminal and enjoy the fireworks!
 
     curl https://github.com/jfgomez86/vimfiles/raw/master/install.sh | sh
 
+
+Post Instalation Notes
+=====================
+
+* The install script above tries to compile a Command-T c++ component.
+* NERDCommenter doesn't work unless a tag is manually switched to:
+
+    ~/.vim/bundle/nerdcommenter/ $> git checkout 2.1.10
+
+* SuperTab plugin isn't compatible with endwise by default, so I removed it.
+* I hate autoclose.vim, gave it a 2nd chance, but I still hate it. Removed.
