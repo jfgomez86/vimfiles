@@ -19,7 +19,7 @@ set shiftwidth=2
 set softtabstop=2
 
 " Colorscheme Settings
-colorscheme vividchalk
+colorscheme mustang
 
 " Make wildmenu matches case insensitive
 set wildmode+=full
