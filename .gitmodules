@@ -16,9 +16,9 @@
 [submodule "bundle/javascript"]
 	path = bundle/javascript
 	url = git://github.com/pangloss/vim-javascript.git
-[submodule "bundle/markdown_preview"]
-	path = bundle/markdown_preview
-	url = git://github.com/robgleeson/vim-markdown-preview.git
+[submodule "bundle/hammer"]
+	path = bundle/hammer
+	url = git://github.com/robgleeson/hammer.vim.git
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
