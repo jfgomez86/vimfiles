@@ -20,6 +20,11 @@ set softtabstop=2
 
 " Colorscheme Settings
 colorscheme mustang
+set columns=100
+set lines=61
+if has("gui")
+  set colorcolumn=78
+endif
 
 " Make wildmenu matches case insensitive
 set wildmode+=full
@@ -134,3 +139,4 @@ map <Leader>tc <Plug>RubyFileRun
 " Gist config
 let g:gist_show_privates = 1
 let g:gist_detect_filetype = 1
+
