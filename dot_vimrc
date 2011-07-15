@@ -20,8 +20,12 @@ set softtabstop=2
 
 " Colorscheme Settings
 colorscheme mustang
-set columns=100
-set lines=61
+
+if has("gui_running")
+  set columns=100
+  set lines=61
+endif
+
 if has("gui")
   set colorcolumn=78
 endif
