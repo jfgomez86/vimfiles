@@ -79,8 +79,8 @@
 [submodule "bundle/IndexedSearch"]
 	path = bundle/IndexedSearch
 	url = git://github.com/vim-scripts/IndexedSearch.git
-[submodule "bundle/syntastic/"]
-	path = bundle/syntastic/
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
 [submodule "bundle/taglist"]
 	path = bundle/taglist
