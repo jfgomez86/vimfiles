@@ -24,6 +24,7 @@ colorscheme mustang
 if has("gui_running")
   set columns=100
   set lines=61
+  set guifont=Consolas:h12
 endif
 
 if has("gui")
