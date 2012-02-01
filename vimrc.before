@@ -1,0 +1,3 @@
+call janus#disable_plugin('supertab')
+call janus#disable_plugin('tagbar')
+call janus#disable_plugin('buffergator')
