@@ -1,11 +1,16 @@
 " Colorscheme
-color mustang
+set background=dark
+color solarized
 
 " Customizations
+set relativenumber
+
 set guioptions-=m       " Can't remember :)
 set guioptions-=T       " No toolbars
 set guioptions-=r       " No scrollbars
+
 set visualbell t_vb=    " Don't beep
+
 set hidden              " Don't prompt to save when switching buffers
 
 " My Custom Mappings
