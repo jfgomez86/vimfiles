@@ -1,6 +1,6 @@
 " Colorscheme
 set background=dark
-color solarized
+color mustang
 
 " Customizations
 set relativenumber
@@ -9,9 +9,12 @@ set guioptions-=m       " Can't remember :)
 set guioptions-=T       " No toolbars
 set guioptions-=r       " No scrollbars
 
+set guifont=Meslo\ LG\ S\ for\ PowerLine
+
 set visualbell t_vb=    " Don't beep
 
 set hidden              " Don't prompt to save when switching buffers
 
 " My Custom Mappings
 map <c-b> :CtrlPBuffer<CR>
+

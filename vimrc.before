@@ -1,3 +1,6 @@
 call janus#disable_plugin('supertab')
 call janus#disable_plugin('tagbar')
 call janus#disable_plugin('buffergator')
+
+" Powerline Patched fonts support for airline
+let g:airline_powerline_fonts = 1 
